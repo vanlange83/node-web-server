@@ -34,14 +34,14 @@ app.use((req, res, next) => {
 // });
 
 
+hbs.registerHelper('screamIt' , (text) => {
+    return text.toUpperCase();
+});
 
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 });
 
-hbs.registerHelper('screamIt' , (text) => {
-    return text.toUpperCase();
-});
 
 app.get('/', (req, res) => {
     
@@ -53,7 +53,14 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'About Page',
+        pageTitle: 'About Page'
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects',  
+        welcome: 'Portfolio'
     });
 });
 
